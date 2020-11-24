@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="create()">Aufgabe erstellen</button>
+    <ul class="items">
+        Meine Aufgabe:
+
+    </ul>
+    <script>
+        function create(){
+            let list = document.querySelector(".items");
+            let node = document.createElement("li");
+            node.classList.add("todo-item");
+            node.style ="color: orangered";
+            node.innerHTML =  '<div class= "todo-item"></div>';
+            
+            list.appendChild(node);
+            node.querySelector(".todo-item").textContent = "Eine erste Aufgabe";
+            console.log(node);
+        }
+    
+    </script>
+</body>
+</html>

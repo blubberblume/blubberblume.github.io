@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meine Aufgaben</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="./clock.svg"
+          alt="Picture of a clock. Logo of the application."
+        />
+      </div>
+      <div class="app-name">Doit</div>
+      <div class="current-time">00:00:00 Uhr</div>
+    </header>
+    <main data-active-filter="all">
+      <form class="create-todo-form">
+        <div class="create-todo-fields input-group">
+          <label for="new-todo-field" class="sr-only">Neue Aufgabe:</label>
+          <input
+            id="new-todo-field"
+            type="text"
+            placeholder="Einkaufen gehen..."
+          />
+          <button type="submit">Anlegen</button>
+        </div>
+      </form>
+      <div class="filter-list">
+        <button class="filter" data-filter-key="all">all</button>
+        <button class="filter" data-filter-key="open">open</button>
+        <button class="filter" data-filter-key="done">done</button>
+      </div>
+      <ul class="todos"></ul>
+      <div class="service-switch-container">
+        <label for="service-switch">Daten vom Server laden</label>
+        <label class="switch">
+          <input id="service-switch" checked type="checkbox" class="sr-only">
+          <div class="switch-background">
+            <div class="switch-knob"></div>
+          </div>
+        </label>
+        </div>
+      </div>
+    </main>
+    
+    <script src="time.js"></script>
+    <script src="todoService.js"></script>
+    <script src="localTodoService.js"></script>
+    <script src="todoView.js"></script>
+    <script src="filter.js"></script>
+    <script src="main.js"></script>
+
+  </body>
+</html>

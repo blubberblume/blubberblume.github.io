@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="test">Klich mich an</button>
+
+    <script>
+      const myButton = document.querySelector(".test");
+      myButton.addEventListener("click", function() {
+        alert("Du hast mich angeklickt");
+      });
+
+      const myButton = document.querySelector(".test");
+      myButton.addEventListener("click", function() {
+        meineFunktion();
+      });
+
+      const myButton = document.querySelector(".test");
+      myButton.addEventListener("click", meineFunktion);
+
+      function meineFunktion() {
+        alert("Du hast mich angeklickt");
+      }
+
+      //   document.querySelector(".test").addEventListener("click", meineFunktion);
+      //   document.getElementsByClassName("test")[0].addEventListener....
+    </script>
+  </body>
+</html>

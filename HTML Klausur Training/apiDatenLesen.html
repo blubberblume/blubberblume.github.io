@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API lesen</title>
+
+<script>
+    let web_api = 'https://f73webapi.azurewebsites.net/api/Items';
+    let app_ID = 12345;
+
+    // 1. Möglichkeit Daten holen
+    async function holen(){
+        let response = await fetch(web_api + "/App/" + app_ID, {
+            method: 'GET',
+            headers: {
+                'Content-Typ': 'application/jason'
+            }
+        });
+
+        let todos = await response.json();
+        console.log(todos.length + "Aufgaben empfangen");
+
+        for(todo of todos){
+            console.log(todo.id, todo.value, todo.isComplete);
+        }
+    }
+
+    // 2. Möglichkeit Daten holen
+    function loadTodos(){
+       return  fetch(web_api + "/App/" + app_ID)
+        .then((response) => {
+            if (!response.ok){
+                throw new Error("Die gewünschten Daten konnten nicht geladen werden.")
+            }
+            return response.json();
+        });
+    }
+
+    function holen1(){
+        loadTodos().then((todos) => {
+            console.log(todos.length + " Aufgaben wurden empfangen." );
+            for(todo of todos){
+            console.log(todo.id, todo.value, todo.isComplete);
+        }
+        })
+    }
+//===================================================================================================
+
+// 1. Möglichkeit Daten in API schreiben
+
+async function schreiben(){
+    let todo = {
+        appId: app_ID,
+        key: "",
+        value: "Gerhards Aufgabe",
+        isComplete: false
+    };
+
+    let response = await fetch(web_api, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(todo)
+    });
+    let result = await response.json();
+
+    if (response.status == 201){
+        console.log("Alles ok")
+    }
+}
+
+// 2. Möglichkeit Daten in API schreiben
+
+function schreiben1(){
+    return fetch(web_api, {
+        method: 'POST',
+        body: JSON.stringify({
+            AppId: app_ID,
+            key:"",
+            value: "2. Aufgabe Daniel",
+            isComplete: false
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    }).then((response) => {
+        if(!response.ok){
+            throw new Error("Todo konnte nicht gespeichert werden");
+        }
+        return response.json();
+    });
+}
+
+
+
+
+</script>
+</head>
+
+<body>
+    <button onclick="holen()">Daten holen</button>
+    <button onclick="holen1()">Daten holen</button>
+    <button onclick="schreiben()">Api schreiben</button>
+    <button onclick="schreiben1()">Api schreiben1</button>
+</body>
+</html>

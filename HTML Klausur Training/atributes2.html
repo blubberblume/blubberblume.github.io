@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article
+      id="electric-cars"
+      data-columns="3"
+      data-indexnumber="12314"
+      xyz="cars"
+    >
+      Hier steht der Artikel ... Lorem ispum ...
+    </article>
+
+    <script>
+      const article = document.querySelector("#electric-cars");
+
+      console.log(article);
+
+      console.log(article.getAttribute("xyz")); // Das funktioniert
+
+      console.log(
+        article.dataset.columns,
+        article.dataset.indexnumber,
+        article.dataset.xyz
+      ); // dataset.xyz funktioniert nicht
+    </script>
+  </body>
+</html>

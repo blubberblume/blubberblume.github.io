@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<button onclick="test1()">parse / stringify</button>
+<button onclick="test2()">Aus einem response Stream ein Objekt machen</button>
+
+    <script>
+        
+    function test1(){
+        
+        // Javascript bzw. JSON Objekt to String
+        // https://www.mediaevent.de/javascript/json.html
+        let x = {
+            "vorname": "Gerhard",
+            "nachname": "Grabmann",
+            "ort": "Nürnberg"
+        }
+        console.log(x);
+        y=JSON.stringify(x);
+        console.log(y);
+        
+        // String to JSON Objekt
+        let comic = '{"author":"Schuiten und Peters", "book": {"title":"Bruesel", "published":"1992", "image":"https://www.mediaevent.de/javascript/img/bruesel.jpg"}}';
+        console.log(comic);
+        let obj = JSON.parse(comic);
+        console.log(obj);
+        console.log(JSON.stringify(obj));
+
+    }
+
+    
+    // ****************************************************************************
+        
+    async function test2(){
+  
+    // response.json() liest einen response Stream und gibt ein (json) - Objekt zurück
+    // https://developer.mozilla.org/de/docs/Web/API/Body/json
+
+        let response = await fetch('https://f73webapi.azurewebsites.net/api/items/App/12345', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+            });
+
+        let todos = await response.json();
+        
+        let test = await response;
+        console.log(test);
+        
+        console.log(todos.length);
+        for(todo of todos){
+          console.log(todo.id, todo.key, todo.value, todo.isComplete)
+        }
+        console.log(todos);
+    }
+
+</script>
+</body>
+</html>

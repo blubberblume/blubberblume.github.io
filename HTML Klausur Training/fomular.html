@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meine Aufgaben</title>
+  </head>
+  <body>
+    <form action="senden.html" id="person">
+        <!-- <select name="top5">
+            <option>männlich</option>
+            <option>weiblich</option>
+            <option>divers</option>
+         </select> -->
+
+        <label class="h2" form="person">Namenseingabe</label>
+        <label for="vorname">Vorname</label> 
+        <input type="text" name="vorname" id="vorname" maxlength="30">
+    
+        <label for="zuname">Zuname</label>  
+        <input type="text" name="zuname" id="zuname" maxlength="40">
+
+        <input type="radio" id="male" name="gender" value="männlich">
+        <label for="male"> männlich</label>
+
+        <input type="radio" id="female" name="gender" value="weibich">
+        <label for="female"> männlich</label>
+
+        <input type="radio" id="divers" name="gender" value="divers">
+        <label for="divers"> divers</label>
+
+        <button type="reset">Eingaben zurücksetzen</button>
+        <button type="submit">Eingaben absenden</button>
+    </form>
+
+  </body>
+</html>

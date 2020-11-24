@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<script>
+        function showDetails(role) {
+          var attribut = role.getAttribute("data-role");
+            alert(attribut);
+        }
+</script>
+<body>
+
+ <div data-role="user" onclick="showDetails(this)">Hier steckt eine Rolle dahinter</div>
+    
+</body>
+
+
+</html>

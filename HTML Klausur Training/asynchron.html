@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // function test() {
+      //     console.log(1);
+      //     setTimeout(() => console.log(2), 2000);
+      //     console.log(3);
+      // }
+
+      const responsePromise = fetch(
+        "https://f73webapi.azurewebsites.net/api/items"
+      );
+
+      responsePromise
+        .then(response => {
+          console.log("Response erhalten");
+          const contentPromise = response.json();
+          return contentPromise;
+        })
+        .then(content => {
+          console.log("content: ", content);
+        });
+    </script>
+  </head>
+
+  <body>
+    <button onclick="test()">Klick mich</button>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function() {
+        let node = document.querySelector(".myCookie");
+        node.addEventListener("click", () => {
+          document.cookie = "Name=Gerhard;";
+          document.cookie = "Wohnort=Nürnberg;";
+          console.log(document.cookie);
+          let cookieList = document.cookie.split(";");
+          console.log(cookieList);
+          document.getElementById("Hallo").innerText = cookieList;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <button class="myCookie">Cookie setzen und lesen</button>
+    <div id="Hallo"></div>
+  </body>
+</html>
